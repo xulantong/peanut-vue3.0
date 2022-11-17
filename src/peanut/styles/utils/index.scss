@@ -1,0 +1,91 @@
+@mixin flex-center($direction:row) {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: $direction !important;
+}
+
+.flex-1 {
+    height: 0;
+    flex: 1;
+}
+
+.flex-center {
+    @include flex-center();
+}
+
+.flex-x-center {
+    @include flex-center();
+    align-items: flex-start !important;
+}
+
+.flex-y-center {
+    @include flex-center();
+    justify-content: flex-start !important;
+}
+
+.flex-x-between {
+    @include flex-center();
+    justify-content: space-between !important;
+}
+
+.flex-y-between {
+    @include flex-center(column);
+    justify-content: space-between !important;
+}
+
+$util-list: (
+                ("m", auto, ""),
+                ("m", 0, ""),
+                ("m", 4, "px"),
+                ("m", 8, "px"),
+                ("m", 12, "px"),
+                ("m", 16, "px"),
+                ("m", 24, "px"),
+                ("m", 32, "px"),
+                ("p", 0, ""),
+                ("p", 4, "px"),
+                ("p", 8, "px"),
+                ("p", 12, "px"),
+                ("p", 16, "px"),
+                ("p", 24, "px"),
+                ("p", 32, "px")
+);
+
+$position-list: ("", "t", "r", "b", "l", "x", "y");
+
+@mixin build($way, $position, $value, $unit) {
+    @if $position == "t" {
+        #{$way}-top: #{$value}#{$unit} !important;
+    } @else if $position == "r" {
+        #{$way}-right: #{$value}#{$unit} !important;
+    } @else if $position == "b" {
+        #{$way}-bottom: #{$value}#{$unit} !important;
+    } @else if $position == "l" {
+        #{$way}-left: #{$value}#{$unit} !important;
+    } @else if $position == "x" {
+        #{$way}-left: #{$value}#{$unit} !important;
+        #{$way}-right: #{$value}#{$unit} !important;
+    } @else if $position == "y" {
+        #{$way}-top: #{$value}#{$unit} !important;
+        #{$way}-bottom: #{$value}#{$unit} !important;
+    } @else {
+        #{$way}: #{$value}#{$unit} !important;
+    }
+}
+
+@each $item in $util-list {
+    $format: nth($item, 1);
+    $value: nth($item, 2);
+    $unit: nth($item, 3);
+
+    @each $position in $position-list {
+        .#{$format}#{$position}-#{$value} {
+            @if $format == "m" {
+                @include build("margin", $position, $value, $unit);
+            } @else if $format == "p" {
+                @include build("padding", $position, $value, $unit);
+            }
+        }
+    }
+}
