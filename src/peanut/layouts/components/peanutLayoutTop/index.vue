@@ -1,3 +1,7 @@
+/*
+* @author: xulantong
+* @time: 2022-11-17 19:13:53
+*/
 <template>
     <div class="peanut-top-bar flex-x-between px-8">
         <div class="flex-y-center">left</div>

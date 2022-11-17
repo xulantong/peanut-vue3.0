@@ -1,3 +1,8 @@
+/*
+* @author: xulantong
+* @time: 2022-11-17 19:14:02
+*/
+
 import {createRouter, createWebHashHistory} from 'vue-router'
 
 const routes = [
