@@ -4,6 +4,7 @@
 */
 import PeanutLayoutsComponents from './layouts/components'
 import './styles/index.scss'
+import './plugins/permission'
 
 export default {
     install(app) {

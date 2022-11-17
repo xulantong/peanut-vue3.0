@@ -7,8 +7,9 @@ const routes = [
         component: () => import('./../peanut/layouts'),
         children:[
             {
-                path:'/index',
-                name:'index',
+                path:'/home',
+                name:'home',
+                component:()=>import('./../peanut/views/Home')
             }
         ]
     },
