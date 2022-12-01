@@ -6,5 +6,6 @@
 module.exports = {
     baseUrl: '/peanut',
     theme: 'default',
-    title:'后台解决方案'
+    title: '后台解决方案',
+    showBackgroundImage: true
 }

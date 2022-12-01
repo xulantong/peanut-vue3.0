@@ -18,6 +18,16 @@ const routes = [
             }
         ]
     },
+    {
+        path: '/changePassword',
+        name: 'changePassword',
+        component: () => import('@/peanut/views/ChangePassword'),
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/peanut/views/Login'),
+    }
 ]
 
 const router = createRouter({

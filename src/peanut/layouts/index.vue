@@ -11,7 +11,7 @@
             <div class="left">
                 <peanut-layout-side></peanut-layout-side>
             </div>
-            <div class="right">
+            <div class="right" :class="{showBackgroundImage:showBackgroundImage}">
                 <router-view></router-view>
             </div>
         </div>
@@ -19,8 +19,15 @@
 </template>
 
 <script>
+import {showBackgroundImage} from './../config'
+
 export default {
     name: "layouts",
+    setup() {
+        return {
+            showBackgroundImage
+        }
+    }
 }
 </script>
 
@@ -34,11 +41,23 @@ export default {
         height: 0;
         flex: 1;
         display: flex;
-        .left{
+
+        .left {
             height: 100%;
             width: $base-menu-side-width;
             background-color: $base-menu-side-background;
             color: $base-menu-side-color;
+        }
+
+        .right {
+            width: 0;
+            flex: 1;
+            padding: $base-space;
+        }
+
+        .showBackgroundImage{
+            background: url("./../assets/images/background.png");
+            background-size: cover;
         }
     }
 }

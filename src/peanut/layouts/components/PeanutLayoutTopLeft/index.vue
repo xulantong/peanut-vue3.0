@@ -1,6 +1,9 @@
 <template>
     <div class="peanut-layout-top-left">
-        {{header}}
+        <div class="logo">
+            <img src="@/peanut/assets/images/logo.png">
+        </div>
+        <div class="title"> {{ header }}</div>
     </div>
 </template>
 
@@ -10,11 +13,11 @@ import {computed} from "vue";
 
 export default {
     name: "PeanutLayoutTopLeft",
-    setup(){
-        let header = computed(()=>{
+    setup() {
+        let header = computed(() => {
             return title
         })
-        return{
+        return {
             header
         }
     }
@@ -23,6 +26,21 @@ export default {
 
 <style lang="scss" scoped>
 .peanut-layout-top-left {
+    display: flex;
+    align-items: center;
+
+    .logo {
+        width: 32px;
+        height: 32px;
+        margin-right: $base-space;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+    }
 
 }
 
