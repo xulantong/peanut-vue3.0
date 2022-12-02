@@ -39,10 +39,12 @@
 
 <script>
 import {reactive, ref} from "vue";
+import {useRouter} from "vue-router";
 
 export default {
     name: "Login",
     setup() {
+        let router = useRouter()
         let formData = reactive({
             username: '',
             password: '',
@@ -62,7 +64,7 @@ export default {
         function handleLogin(formRef) {
             formRef.validate(valid=>{
                 if(valid){
-                    console.log(formData)
+                    router.push('/home')
                 }
             })
         }
@@ -113,7 +115,7 @@ export default {
         flex: 1;
         display: flex;
         justify-content: space-between;
-        width: 75%;
+        width: 70%;
         padding-top: 100px;
 
         .left {
