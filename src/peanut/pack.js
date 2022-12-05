@@ -4,6 +4,9 @@
 */
 const {theme} = require('./config')
 const path = require('path')
+const resolve = (dir) => path.join(process.cwd(), dir)
+process.env.VUE_APP_IS_NODE = false;
+process.env.VUE_APP_TITLE = "title";
 
 module.exports.createPack = function (pack) {
     return {
@@ -22,6 +25,15 @@ module.exports.createPack = function (pack) {
 
                 }
             },
+        },
+        configureWebpack() {
+            return {
+                resolve: {
+                    alias: {
+                        '@': resolve('src'),
+                    },
+                }
+            }
         },
         ...pack
     }

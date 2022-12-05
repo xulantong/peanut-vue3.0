@@ -4,26 +4,31 @@
 */
 let config = {}
 
-//判断是否是node环境
-// if (process.env.VUE_APP_IS_NODE) {
-//     try {
-//         config = require("../../config")
-//     } catch (e) {
-//         //ignore
-//     }
-// } else {
-//     let customFile = require.context("@", true, /\.\/config\/index\.js/);
-//     if (customFile.keys().length) {
-//         config = customFile(customFile.keys()[0]);
-//     }
-// }
+// 判断是否是node环境
+if (process.env.VUE_APP_IS_NODE) {
+    try {
+        config = require("../../config")
+    } catch (e) {
+        //ignore
+    }
+} else {
+    try {
+        let customFile = require.context("@", true, /\.\/config\/index\.js/);
+        if (customFile.keys().length) {
+            config = customFile(customFile.keys()[0]);
+        }
+    } catch (e) {
+        //ignore
+    }
+
+}
 
 const defaultConfig = {
     baseUrl: '/peanut',
     theme: 'default',
-    title:'peanut后台解决方案'
+    title: 'peanut后台解决方案'
 }
 
 module.exports = {
-    ...Object.assign({},defaultConfig,config)
+    ...Object.assign({}, defaultConfig, config)
 }
