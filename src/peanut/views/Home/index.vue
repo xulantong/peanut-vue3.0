@@ -7,8 +7,17 @@
 </template>
 
 <script>
+import {useStore} from "vuex";
+
 export default {
-    name: "Home"
+    name: "Home",
+    setup() {
+        const store = useStore()
+        console.log(store)
+        return{
+
+        }
+    }
 }
 </script>
 
