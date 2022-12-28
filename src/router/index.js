@@ -1,6 +1,5 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
 
-const routes = [
+export default [
     {
         path: '/peanut',
         name: 'layouts',
@@ -20,10 +19,3 @@ const routes = [
         ]
     },
 ]
-
-const router = createRouter({
-    history: createWebHashHistory(),
-    routes
-})
-
-export default router

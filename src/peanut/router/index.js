@@ -4,6 +4,7 @@
 */
 
 import {createRouter, createWebHashHistory} from 'vue-router'
+import CusuomRoutes from './../../router/index'
 
 const routes = [
     {
