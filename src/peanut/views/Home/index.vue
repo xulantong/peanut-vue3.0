@@ -3,7 +3,7 @@
 * @time: 2022-12-01 16:38:07
 */
 <template>
-    {{ demo }}
+    <div>Home</div>
 </template>
 
 <script>
@@ -15,7 +15,6 @@ export default {
     setup() {
         const store = useStore()
         const demo = computed(() => store.state.demo)
-        console.log(store)
         return {
             demo
         }

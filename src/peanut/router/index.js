@@ -7,12 +7,12 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 
 const routes = [
     {
-        path: '/',
+        path: '/peanut',
         name: 'layouts',
         component: () => import('@/peanut/layouts'),
         children: [
             {
-                path: '/home',
+                path: 'home',
                 name: 'home',
                 component: () => import('./../views/Home')
             }

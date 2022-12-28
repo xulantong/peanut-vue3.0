@@ -5,12 +5,16 @@
 
 <template>
     <div class="peanut-layout-side">
+        <peanut-layout-menu :route="route"></peanut-layout-menu>
     </div>
 </template>
 
 <script>
 export default {
-    name: "PeanutLayoutSide"
+    name: "PeanutLayoutSide",
+    props: {
+        route: {}
+    }
 }
 </script>
 

@@ -9,7 +9,7 @@
         </div>
         <div class="content">
             <div class="left">
-                <peanut-layout-side></peanut-layout-side>
+                <peanut-layout-side :route="route"></peanut-layout-side>
             </div>
             <div class="right" :class="{showBackgroundImage:showBackgroundImage}">
                 <router-view></router-view>
@@ -20,12 +20,71 @@
 
 <script>
 import {showBackgroundImage} from './../config'
+import {reactive} from "vue";
 
 export default {
     name: "layouts",
     setup() {
+        let route = reactive([
+            {
+                path: '/peanut',
+                name: 'layouts',
+                meta: {
+                    title: '花生'
+                },
+                children: [
+                    {
+                        path: 'home1',
+                        name: 'home',
+                        meta: {
+                            title: '主页'
+                        },
+                        children:[
+                            {
+                                path: 'home11',
+                                name: 'home',
+                                meta: {
+                                    title: '主页1'
+                                },
+                            },
+                            {
+                                path: 'home12',
+                                name: 'home',
+                                meta: {
+                                    title: '主页2'
+                                },
+                            }
+                        ]
+                    },
+                    {
+                        path: 'home2',
+                        name: 'home',
+                        meta: {
+                            title: '主页2'
+                        },
+                        children:[
+                            {
+                                path: 'home21',
+                                name: 'home',
+                                meta: {
+                                    title: '主页21'
+                                },
+                            },
+                            {
+                                path: 'home22',
+                                name: 'home',
+                                meta: {
+                                    title: '主页22'
+                                },
+                            }
+                        ]
+                    }
+                ]
+            },
+        ])
         return {
-            showBackgroundImage
+            showBackgroundImage,
+            route
         }
     }
 }
@@ -55,7 +114,7 @@ export default {
             padding: $base-space;
         }
 
-        .showBackgroundImage{
+        .showBackgroundImage {
             background: url("./../assets/images/background.png");
             background-size: cover;
         }
