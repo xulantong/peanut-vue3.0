@@ -20,68 +20,14 @@
 
 <script>
 import {showBackgroundImage} from './../config'
-import {reactive} from "vue";
+import {computed} from "vue";
+import {useStore} from "vuex";
 
 export default {
     name: "layouts",
     setup() {
-        let route = reactive([
-            {
-                path: '/peanut',
-                name: 'layouts',
-                meta: {
-                    title: '花生'
-                },
-                children: [
-                    {
-                        path: 'home1',
-                        name: 'home',
-                        meta: {
-                            title: '主页'
-                        },
-                        children:[
-                            {
-                                path: 'home11',
-                                name: 'home',
-                                meta: {
-                                    title: '主页1'
-                                },
-                            },
-                            {
-                                path: 'home12',
-                                name: 'home',
-                                meta: {
-                                    title: '主页2'
-                                },
-                            }
-                        ]
-                    },
-                    {
-                        path: 'home2',
-                        name: 'home',
-                        meta: {
-                            title: '主页2'
-                        },
-                        children:[
-                            {
-                                path: 'home21',
-                                name: 'home',
-                                meta: {
-                                    title: '主页21'
-                                },
-                            },
-                            {
-                                path: 'home22',
-                                name: 'home',
-                                meta: {
-                                    title: '主页22'
-                                },
-                            }
-                        ]
-                    }
-                ]
-            },
-        ])
+        let store = useStore()
+        let route = computed(() => store.state['peanut-routes'].routes)
         return {
             showBackgroundImage,
             route

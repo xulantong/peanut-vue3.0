@@ -4,21 +4,8 @@
 */
 
 import {createRouter, createWebHashHistory} from 'vue-router'
-import CusuomRoutes from './../../router/index'
 
 const routes = [
-    {
-        path: '/peanut',
-        name: 'layouts',
-        component: () => import('@/peanut/layouts'),
-        children: [
-            {
-                path: 'home',
-                name: 'home',
-                component: () => import('./../views/Home')
-            }
-        ]
-    },
     {
         path: '/changePassword',
         name: 'changePassword',

@@ -28,7 +28,6 @@ export default {
         item: {},
     },
     setup(props) {
-        console.log(props.item)
         let menuComponent = computed(() => {
             if (props.item.children?.length) {
                 return 'SubMenu'
